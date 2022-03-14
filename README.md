@@ -1,1 +1,1 @@
-# code-every-day
+# divvy
