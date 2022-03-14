@@ -38,7 +38,6 @@ import { Container } from '../components/Container';
 export default function Profile() {
     const { isOpen, onOpen, onClose } = useDisclosure()
 
-
     return (
         <>
             <Container height="100vh" padding='150'>

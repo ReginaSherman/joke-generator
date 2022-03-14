@@ -17,7 +17,7 @@ const ClothingItems = () => {
     return (
         <>
             <Flex >
-                <SimpleGrid columns={[1, null, 3]} spacing='40px'>
+                <SimpleGrid columns={[1, null, 4]} spacing={[null, null, '40px']}>
                     {itemQuery.data.map((item) => {
                         return (
                             <div key={item.id}>

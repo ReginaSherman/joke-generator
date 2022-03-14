@@ -23,15 +23,15 @@ const UserDetail = () => {
     return (
         <>
             <Container padding='100'>
-                <Box align='center' padding='4' bg='gray.100' w='xs' h='xxs' borderWidth='1px' borderRadius='lg' overflow='hidden'>
+                <Box align='center' padding='4' bg='gray.100' w='xs' h='xxs' borderRadius='lg' overflow='hidden'>
                     <Img
                         borderRadius='full'
-                        boxSize='100px'
+                        boxSize='75px'
                         src={query.data.image}
                         alt='profile'
                     />
-                    <br />
-                    <Text>{query.data.name}</Text>
+                    <Text fontFamily='Raleway' fontWeight='bold' fontSize='x-large'>{`${query.data.name}'s Closet`}</Text>
+
                 </Box>
 
                 <Flex >

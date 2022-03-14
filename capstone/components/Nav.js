@@ -4,6 +4,8 @@ import { useState } from 'react'
 import { HamburgerIcon, CloseIcon, ChevronDownIcon } from '@chakra-ui/icons'
 import { signIn, signOut, useSession } from 'next-auth/react'
 import { DarkModeSwitch } from './DarkModeSwitch'
+import "@fontsource/patua-one"
+import '@fontsource/fjalla-one'
 
 export const Nav = ({ title }) => {
     const [display, changeDisplay] = useState('none')
@@ -11,50 +13,70 @@ export const Nav = ({ title }) => {
     return (
         <Flex>
             <Flex
+                as='header'
                 pos='fixed'
-                top='1rem'
-                right='7rem'
-            >
+                right='0.5rem'
+                left='0.5rem'
+                justifyContent='center'
+                background='gray.200'
+                backdropFilter="saturate(110%) blur(5px)"
+                shadow='md'>
                 <Flex
                     display={['none', 'none', 'flex', 'flex']}>
                     <Box>
                         <NextLink href='/' passHref>
+                            <Heading
+                                fontSize="5vw"
+                                fontFamily='Patua One'
+                                bg='blackAlpha.600'
+                                bgClip="text"
+                                pr={7}
+                                justifyContent='center'
+                                pos='relative'
+                                as='button'
+                            >
+                                {title}
+                            </Heading>
+                        </NextLink>
+                    </Box>
+                    <Box pr={4}>
+                        <NextLink href='/' passHref>
                             <Button
-                                as='a'
-                                variant='ghost'
-                                aria-label='Home'
+                                fontSize="3vw"
+                                fontFamily='Fjalla One'
+                                bg='blackAlpha.300'
+                                bgClip="text"
                                 my={5}
-                                w='100%'>
-                                Home
+                                pl={5}
+                                pr={5}
+                                justifyContent='center'
+                                pos='relative'
+                                as='button'
+                            >
+                                HOME
                             </Button>
                         </NextLink>
                     </Box>
-                
-                    <Box>
+
+                    <Box pr={4}>
                         <NextLink href='/community' passHref>
                             <Button
-                                as='a'
-                                variant='ghost'
-                                aria-label='Community'
+                                fontSize="3vw"
+                                fontFamily='Fjalla One'
+                                bg='blackAlpha.300'
+                                bgClip="text"
                                 my={5}
-                                w='100%'>
-                                Community
+                                pl={5}
+                                pr={5}
+                                justifyContent='center'
+                                pos='relative'
+                                as='button'
+                            >
+                                COMMUNITY
                             </Button>
                         </NextLink>
                     </Box>
                 </Flex>
-             
-                <Box>
-                    <NextLink href='/' passHref>
-                        <Heading
-                            fontSize="5vw"
-                            // bg='gray.500'
-                            bgGradient="linear(to-l, #187795, #A3B4A2, #38686A)"
-                            bgClip="text">
-                            {title}
-                        </Heading>
-                    </NextLink>
-                </Box>
 
                 <IconButton
                     aria-label='Open Menu'
@@ -65,60 +87,72 @@ export const Nav = ({ title }) => {
                     onClick={() => changeDisplay('flex')}
                 />
                 {/* <DarkModeSwitch /> */}
-              
+
                 <Box>
                     <Flex
                         display={['none', 'none', 'flex', 'flex']}>
 
                         {!session && (
                             <>
-                                <NextLink href='/community' passHref>
-                                    <Button
-                                        as='a'
-                                        variant='ghost'
-                                        aria-label='Community'
-                                        my={5}
-                                        w='100%'
-                                        onClick={signIn}>
-                                        Sign In
-                                    </Button>
-                                </NextLink>
+                                <Box pr={8}>
+                                    <NextLink href='/' passHref>
+                                        <Button
+                                            fontSize="3vw"
+                                            fontFamily='Fjalla One'
+                                            bg='blackAlpha.300'
+                                            bgClip="text"
+                                            my={5}
+                                            justifyContent='center'
+                                            pos='relative'
+                                            as='button'
+                                            onClick={signIn}
+                                        >
+                                            SIGN IN
+                                        </Button>
+                                    </NextLink>
+                                </Box>
                             </>
                         )}
                         {session && (
                             <>
-                                <Menu>
-                                    <MenuButton as={Button} rightIcon={<ChevronDownIcon />} my={5}>
-                                        Welcome, {session.user.name}!
-                                    </MenuButton>
-                                    <MenuList>
-                                        <MenuItem>
-                                            <NextLink href='/profile' passHref>
-                                                <Button
-                                                    as='a'
-                                                    variant='ghost'
-                                                    aria-label='Profile'
-                                                    my={5}
-                                                    w='100%'>
-                                                    Profile
-                                                </Button>
-                                            </NextLink>
-                                        </MenuItem>
-                                        <MenuItem>
-                                            <NextLink href='/community' passHref>
-                                                <Button
-                                                    as='a'
-                                                    variant='ghost'
-                                                    aria-label='Community'
-                                                    my={5}
-                                                    w='100%'
-                                                    onClick={signOut}>
-                                                    Sign Out
-                                                </Button>
-                                            </NextLink>
-                                        </MenuItem>
-                                    </MenuList>
-                                </Menu>
+                                <Box pr={8}>
+                                    <NextLink href='/profile' passHref>
+                                        <Button
+                                            fontSize="3vw"
+                                            fontFamily='Fjalla One'
+                                            bg='blackAlpha.300'
+                                            bgClip="text"
+                                            my={5}
+                                            justifyContent='center'
+                                            pos='relative'
+                                            as='button'
+                                        >
+                                            PROFILE
+                                        </Button>
+                                    </NextLink>
+                                </Box>
+                                <Box pl={8}>
+                                    <Menu>
+                                        <MenuButton as={Button} rightIcon={<ChevronDownIcon />} bg='gray.200'color='blackAlpha.400' my={5}>
+                                            {session.user.name}
+                                        </MenuButton>
+                                        <MenuList>
+                                            <MenuItem>
+                                                <NextLink href='/community' passHref>
+                                                    <Button
+                                                        as='a'
+                                                        variant='ghost'
+                                                        aria-label='Community'
+                                                        w='100%'
+                                                        onClick={signOut}>
+                                                        Sign Out
+                                                    </Button>
+                                                </NextLink>
+                                            </MenuItem>
+                                        </MenuList>
+                                    </Menu>
+                                </Box>
+
                             </>
                         )}
                     </Flex>
@@ -185,5 +219,5 @@ export const Nav = ({ title }) => {
 }
 
 Nav.defaultProps = {
-    title: 'CommunityCloset',
+    title: 'D I V V Y',
 }

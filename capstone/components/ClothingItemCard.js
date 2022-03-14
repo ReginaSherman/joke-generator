@@ -4,7 +4,7 @@ import { Img, Box, SimpleGrid, Container } from '@chakra-ui/react'
 const ClothingItemCard = ({ item }) => {
     return (
         <div key={item.id} >
-            <Box align='center' padding='2' w='xxs' h='xxs' borderWidth='1px' borderRadius='lg' overflow='hidden'>
+            <Box align='center' w='xxs' h='xxs' borderWidth='1px' borderRadius='lg' overflow='hidden'>
                 <Img
                     src={item.image}
                     alt={`Picture of ${item.name}`}

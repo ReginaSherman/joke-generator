@@ -1,7 +1,6 @@
 import { ChakraProvider, ColorModeProvider } from '@chakra-ui/react'
 import { SessionProvider } from 'next-auth/react';
 import { QueryClient, QueryClientProvider } from 'react-query'
-import { Layout } from '../components/Layout'
 import { ReactQueryDevtools } from 'react-query/devtools'
 import theme from '../styles/theme'
 import { Nav } from '../components/Nav';

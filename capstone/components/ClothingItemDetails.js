@@ -1,5 +1,5 @@
-import { Spinner } from '@chakra-ui/react'
-import React from 'react'
+import { Spinner, Button, Box } from '@chakra-ui/react'
+import NextLink from 'next/link'
 import { useQuery } from 'react-query'
 import { useRouter } from 'next/router'
 import { Container } from './Container'
@@ -20,7 +20,18 @@ const ClothingItemDetail = () => {
     return (
         <>
             <Container height="100vh" padding='150'>
-                This is item {query.clothingItem}
+                <Box >
+                <NextLink href='/' passHref>
+                    <Button
+                        as='a'
+                        aria-label='Back'
+                        >
+                        Go Back
+                    </Button>
+                </NextLink>
+                </Box>
+                
+                This is item {query.item}
             </Container>
         </>
     )
