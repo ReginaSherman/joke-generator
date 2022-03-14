@@ -1,7 +1,10 @@
 import React from 'react'
-import { Spinner } from '@chakra-ui/react'
+import { Spinner, Box, Img, Text, Flex, SimpleGrid } from '@chakra-ui/react'
 import { useQuery } from 'react-query'
 import { useRouter } from 'next/router'
+import ClothingItemCard from './ClothingItemCard'
+import { Container } from './Container'
+
 
 const UserDetail = () => {
     const router = useRouter()
@@ -19,15 +22,29 @@ const UserDetail = () => {
     console.log(query)
     return (
         <>
-        
-        <h1>This is user {query.data.name}</h1>
-
-        <h2>User items: </h2>
-        {query.data.clothingItems.map(item => {
-            return (
-                item.name
-            )
-        })}
+            <Container padding='150'>
+                <Box padding='4' bg='gray.100' w='xxs' h='xxs' borderWidth='1px' borderRadius='lg' overflow='hidden'>
+                    <Img
+                        borderRadius='full'
+                        boxSize='100px'
+                        src={query.data.image}
+                        alt='profile'
+                    />
+                    <br />
+                    <Text>{query.data.name}</Text>
+                </Box>
+                {query.data.clothingItems.map(item => {
+                    return (
+                        <>
+                            <SimpleGrid columns={[1, null, 3]} spacing='40px'>
+                                <Flex mt={40}>
+                                    <ClothingItemCard item={item} />
+                                </Flex>
+                            </SimpleGrid>
+                        </>
+                    )
+                })}
+            </Container>
         </>
     )
 }

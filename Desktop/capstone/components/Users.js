@@ -1,7 +1,11 @@
-import { Spinner, useRangeSliderContext } from '@chakra-ui/react'
+import { Spinner, Flex, SimpleGrid, Container } from '@chakra-ui/react'
 import Link from 'next/link'
-import React from 'react'
+import Image from 'next/image'
 import { useQuery } from 'react-query'
+import { Nav } from './Nav'
+import { Main } from './Main'
+import UserCard from './UserCard'
+
 
 const Users = () => {
     const userQuery = useQuery('users', async () => {
@@ -15,14 +19,21 @@ const Users = () => {
     }
     return (
         <>
-        <h1>Users</h1>
-        {userQuery.data.map(user => {
-            return (
-                <div key={user.id}>
-                    <Link href={`/user-detail/${user.id}`}>{user.name}</Link>
-                </div>
-            )
-        })}
+            <Container maxW='xl' centerContent>
+                <Flex mt={40}>
+                    <SimpleGrid columns={[2, null, 3]} spacing='40px'>
+                        {userQuery.data.map(user => {
+                            return (
+                                <>
+                                    <UserCard user={user} />
+                                </>
+                            )
+                        })}
+                    </SimpleGrid>
+                </Flex>
+            </Container>
+
+
         </>
     )
 }

@@ -1,7 +1,9 @@
-import { Spinner } from '@chakra-ui/react'
-import Link from 'next/link'
+import { Spinner, SimpleGrid, Container, Flex, Link } from '@chakra-ui/react'
 import React from 'react'
 import { useQuery } from 'react-query'
+
+
+import ClothingItemCard from './ClothingItemCard'
 
 const ClothingItems = () => {
     const itemQuery = useQuery('items', async () => {
@@ -14,14 +16,17 @@ const ClothingItems = () => {
     }
     return (
         <>
-        <h1>Items</h1>
-        {itemQuery.data.map(item => {
-            return (
-                <div key={item.id}>
-                    <Link href={`/item-detail/${item.id}`}>{item.name}</Link>
-                </div>
-            )
-        })}
+            <Flex >
+                <SimpleGrid columns={[1, null, 3]} spacing='40px'>
+                    {itemQuery.data.map((item) => {
+                        return (
+                            <div key={item.id}>
+                                <Link href={`/item-detail/${item.id}`}><ClothingItemCard item={item} /></Link>
+                            </div>
+                        )
+                    })}
+                </SimpleGrid>
+            </Flex>
         </>
     )
 }
