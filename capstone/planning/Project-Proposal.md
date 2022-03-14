@@ -1,4 +1,4 @@
-# Capstone Project - CommunityCloset
+# Capstone Project 
 
 ## Summary
 
