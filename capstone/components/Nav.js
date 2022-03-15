@@ -6,12 +6,39 @@ import { signIn, signOut, useSession } from 'next-auth/react'
 import { DarkModeSwitch } from './DarkModeSwitch'
 import "@fontsource/patua-one"
 import '@fontsource/fjalla-one'
+import "@fontsource/abel"
 
 export const Nav = ({ title }) => {
     const [display, changeDisplay] = useState('none')
     const { data: session, status } = useSession()
     return (
         <Flex>
+            <Flex display={['flex', 'flex', 'none', 'none']}>
+                <Box>
+                <IconButton
+                    aria-label='Open Menu'
+                    size='lg'
+                    icon={<HamburgerIcon />}
+                    onClick={() => changeDisplay('flex')}
+                />
+                    <NextLink href='/' passHref>
+                        <Heading
+                            fontSize="5vw"
+                            fontFamily='Patua One'
+                            bg='blackAlpha.600'
+                            bgClip="text"
+                            pr={7}
+                            justifyContent='center'
+                         
+                            as='button'
+                        >
+                            {title}
+                        </Heading>
+                    </NextLink>
+                </Box>
+
+            </Flex>
+
             <Flex
                 as='header'
                 pos='fixed'
@@ -42,8 +69,8 @@ export const Nav = ({ title }) => {
                     <Box pr={4}>
                         <NextLink href='/' passHref>
                             <Button
-                                fontSize="3vw"
-                                fontFamily='Fjalla One'
+                                fontSize="2vw"
+                                fontFamily='Abel'
                                 bg='blackAlpha.300'
                                 bgClip="text"
                                 my={5}
@@ -61,8 +88,8 @@ export const Nav = ({ title }) => {
                     <Box pr={4}>
                         <NextLink href='/community' passHref>
                             <Button
-                                fontSize="3vw"
-                                fontFamily='Fjalla One'
+                                fontSize="2vw"
+                                fontFamily='Abel'
                                 bg='blackAlpha.300'
                                 bgClip="text"
                                 my={5}
@@ -78,27 +105,19 @@ export const Nav = ({ title }) => {
                     </Box>
                 </Flex>
 
-                <IconButton
-                    aria-label='Open Menu'
-                    size='lg'
-                    mr={2}
-                    icon={<HamburgerIcon />}
-                    display={['flex', 'flex', 'none', 'none']}
-                    onClick={() => changeDisplay('flex')}
-                />
+
                 {/* <DarkModeSwitch /> */}
 
                 <Box>
                     <Flex
                         display={['none', 'none', 'flex', 'flex']}>
-
                         {!session && (
                             <>
                                 <Box pr={8}>
                                     <NextLink href='/' passHref>
                                         <Button
-                                            fontSize="3vw"
-                                            fontFamily='Fjalla One'
+                                            fontSize="2vw"
+                                            fontFamily='Abel'
                                             bg='blackAlpha.300'
                                             bgClip="text"
                                             my={5}
@@ -118,8 +137,8 @@ export const Nav = ({ title }) => {
                                 <Box pr={8}>
                                     <NextLink href='/profile' passHref>
                                         <Button
-                                            fontSize="3vw"
-                                            fontFamily='Fjalla One'
+                                            fontSize="2vw"
+                                            fontFamily='Abel'
                                             bg='blackAlpha.300'
                                             bgClip="text"
                                             my={5}
@@ -133,7 +152,7 @@ export const Nav = ({ title }) => {
                                 </Box>
                                 <Box pl={8}>
                                     <Menu>
-                                        <MenuButton as={Button} rightIcon={<ChevronDownIcon />} bg='gray.200'color='blackAlpha.400' my={5}>
+                                        <MenuButton as={Button} rightIcon={<ChevronDownIcon />} bg='gray.200' color='blackAlpha.400' my={5}>
                                             {session.user.name}
                                         </MenuButton>
                                         <MenuList>
@@ -219,5 +238,5 @@ export const Nav = ({ title }) => {
 }
 
 Nav.defaultProps = {
-    title: 'D I V V Y',
+    title: 'D  I  V  V  Y',
 }
