@@ -30,7 +30,7 @@ const UserDetail = () => {
                         src={query.data.image}
                         alt='profile'
                     />
-                    <Text fontFamily='Raleway' fontWeight='bold' fontSize='x-large'>{`${query.data.name}'s Closet`}</Text>
+                    <Text fontFamily='Abel' fontWeight='bold' fontSize='x-large'>{`${query.data.name}'s Closet`}</Text>
 
                 </Box>
 
