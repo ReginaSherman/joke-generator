@@ -16,6 +16,9 @@ export default async function handler(req, res) {
       const {
         name,
         image,
+        category,
+        description,
+        size
       } = req.body;
 
       console.log('prisma', prisma);
@@ -25,6 +28,9 @@ export default async function handler(req, res) {
         data: {
           name,
           image,
+          category,
+          description,
+          size,
           user: {
             connect: {
               id: userId,

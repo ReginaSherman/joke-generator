@@ -9,38 +9,44 @@ import {
     Button,
 } from '@chakra-ui/react'
 import axios from 'axios'
-
+import { useS3Upload } from 'next-s3-upload';
 
 const NewItemForm = () => {
-    const initialState = {name: '', category: '', image: '', size: '', description: ''}
+    const initialState = { name: '', category: '', image: '', size: '', description: '' }
     const [formState, setFormState] = useState(initialState)
+    let { FileInput, openFileDialog, uploadToS3 } = useS3Upload();
 
     const handleChange = (event) => {
         setFormState({ ...formState, [event.target.id]: event.target.value });
+    };
+
+    let handleFileChange = async file => {
+        let { url } = await uploadToS3(file);
+        setFormState({...formState, image: url});
       };
 
     const handleSubmit = async (event) => {
-    event.preventDefault();
-    try {
-      await fetch('/api/clothing-item', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          name: formState.name,
-          category: formState.category,
-          image: formState.image,
-          size: formState.size,
-          description: formState.descripton
-        })
-      })
-    } catch (e) {
-      console.error(e)
+        event.preventDefault();
+        try {
+            await fetch('/api/clothing-item', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    name: formState.name,
+                    category: formState.category,
+                    image: formState.image,
+                    size: formState.size,
+                    description: formState.descripton
+                })
+            })
+        } catch (e) {
+            console.error(e)
+        }
+        setFormState(initialState)
     }
-    setFormState(initialState)
-}
-  
+
     return (
         <div>
             <ModalContent padding='5'>
@@ -63,12 +69,12 @@ const NewItemForm = () => {
                             type='file'
                             onChange={(e) => setImage(e.target.files[0])} /> */}
                     <FormLabel htmlFor='image'>Image</FormLabel>
-                    <Input
+                    <Button onClick={openFileDialog}>Upload File</Button>
+                    <FileInput
                         id='image'
                         type='text'
-                        placeholder='image link'
-                        value={formState.image}
-                        onChange={handleChange} />
+                        // value={formState.image}
+                        onChange={handleFileChange} />
                     <FormControl isRequired>
                         <FormLabel htmlFor='description'>Description</FormLabel>
                         <Input
@@ -108,9 +114,9 @@ const NewItemForm = () => {
                     </FormControl>
                     <ModalFooter>
                         <Button type='submit' colorScheme='blue' mr={3}>
-                        Submit
-                    </Button>
-                    
+                            Submit
+                        </Button>
+
                     </ModalFooter>
                 </form>
             </ModalContent>
