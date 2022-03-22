@@ -1,12 +1,12 @@
 import React from 'react'
 import { Box, Image } from '@chakra-ui/react'
 
-const Experience = () => {
+const Resume = () => {
     return (
-        <div id='experience'>
+        <div id='resume'>
             <Box h='575px' >
                 <Box fontFamily={'Bodoni Moda'} fontSize={'6xl'} fontWeight={'bold'} align={'center'}>
-                    <br /> experience
+                    <br /> resume
                 </Box>
                 <Box fontFamily={'Raleway'} fontSize={'3xl'} mt={5}>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, <br />
@@ -27,4 +27,4 @@ const Experience = () => {
     )
 }
 
-export default Experience
+export default Resume

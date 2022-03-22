@@ -53,7 +53,7 @@ const Header = () => {
                             }}
                             fontFamily='Bodoni Moda'
                             fontSize='2xl'
-                            href='#experience'>
+                            href='#resume'>
                             experience
                         </Link>
                     </Stack>
