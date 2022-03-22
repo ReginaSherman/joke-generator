@@ -54,7 +54,7 @@ const Header = () => {
                             fontFamily='Bodoni Moda'
                             fontSize='2xl'
                             href='#resume'>
-                            experience
+                            resume
                         </Link>
                     </Stack>
                 </Flex>
