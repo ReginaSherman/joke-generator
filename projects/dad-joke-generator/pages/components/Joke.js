@@ -3,13 +3,11 @@ import React, {useState, useEffect} from 'react';
 
 export const Joke = () => {
   let [joke, setJoke] = useState(null)
-  console.log(joke)
   const options = {
             method: 'GET',
             headers: {
-                'X-RapidAPI-Host': 'dad-jokes.p.rapidapi.com',
-                'X-RapidAPI-Key': '4be5d4b5f2msh52d37fdd3183f48p1bf118jsn5fba80a6a439'
-            }
+                'X-RapidAPI-Host': process.env.NEXT_PUBLIC_HOST,
+                'X-RapidAPI-Key': process.env.NEXT_PUBLIC_API_KEY            }
         }
         useEffect(() => {
                     fetch(`https://dad-jokes.p.rapidapi.com/random/joke`, options)
@@ -21,7 +19,9 @@ export const Joke = () => {
 
   return (
     <div>
-        {joke?.setup}
+        <h1>{joke?.setup}</h1>
+        <h2>{joke?.punchline}</h2>
+
     </div>
   );
 }
