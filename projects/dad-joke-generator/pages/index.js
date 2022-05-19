@@ -1,6 +1,6 @@
-import { Joke } from './components/Joke'
-import { Header } from './components/Header'
-import styles from './styles/App.module.css'
+import { Joke } from '../components/Joke'
+import { Header } from '../components/Header'
+import styles from '../styles/App.module.css'
 
 
 export default function Home() {

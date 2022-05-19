@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styles from '../styles/App.module.css'
 
-const Joke = () => {
+export const Joke = () => {
     let [joke, setJoke] = useState(null)
     let [clicked, setClicked] = useState(false)
     const options = {
@@ -38,5 +38,4 @@ const Joke = () => {
     );
 }
 
-export default Joke
 
