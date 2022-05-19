@@ -1,7 +1,7 @@
-.container {
-    display: flex;
+.app {
     background-color: blanchedalmond;
-    justify-content: center;
-    height: 100vh;
+    min-height: 100vh;
+    
+    
     
 }
