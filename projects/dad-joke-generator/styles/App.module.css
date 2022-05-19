@@ -41,6 +41,10 @@
 }
 
 @media screen and (max-width: 480px) {
+    .body {
+        min-height: fit-content;
+      }
+
     .jokeText, .punchlineText, .header {
         padding: 20px;
         font-size: 40px;        
@@ -48,7 +52,7 @@
 
     .container {
         display: grid;
-        grid-template-rows: [row1-start] 300px [row1-end row2-start] 1200px [row2-end row3-start] 600px [row3-end row4-start] 300px [row4-end]
+        grid-template-rows: [row1-start] 300px [row1-end row2-start] 900px [row2-end row3-start] 600px [row3-end row4-start] 300px [row4-end]
     }
     
     .button {
@@ -61,11 +65,3 @@
     }
   }
 
-
-@media screen and (max-width: 480px) {
-    .body {
-      min-height: fit-content;
-
-
-    }
-  }
