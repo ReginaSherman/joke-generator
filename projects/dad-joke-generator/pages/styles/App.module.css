@@ -1,0 +1,71 @@
+.body {
+    min-height: 100vh;
+    min-width: fit-content;
+}
+
+.container {
+    display: grid;
+    grid-template-rows: [row1-start] 100px [row1-end row2-start] 600px [row2-end row3-start] 300px [row3-end];
+}
+
+.textContainer {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+.jokeText, .punchlineText, .header {
+    font-family: "Koulen", cursive;
+    width: 600px;
+    text-align: center;
+}
+
+.buttonContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button {
+    background-color: lightskyblue;
+    color: white;
+    border-radius: 20px;
+    font-family: "Koulen", cursive;
+    font-size: 40px;
+    border: none;
+    margin: 10px;
+    padding: 10px;
+    width: 200px;
+    height: 100px;
+    
+}
+
+@media screen and (max-width: 480px) {
+    .jokeText, .punchlineText, .header {
+        padding: 20px;
+        font-size: 40px;        
+    }
+
+    .container {
+        display: grid;
+        grid-template-rows: [row1-start] 300px [row1-end row2-start] 1200px [row2-end row3-start] 600px [row3-end row4-start] 300px [row4-end]
+    }
+    
+    .button {
+        font-size: 40px;
+        margin: 10px;
+        padding: 10px;
+        width: 200px;
+        height: 100px;
+        
+    }
+  }
+
+
+@media screen and (max-width: 480px) {
+    .body {
+      min-height: fit-content;
+
+
+    }
+  }

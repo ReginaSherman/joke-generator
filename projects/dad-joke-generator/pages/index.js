@@ -1,9 +1,12 @@
 import { Joke } from './components/Joke'
-import styles from './styles/Home.module.css'
+import { Header } from './components/Header'
+import styles from './styles/App.module.css'
+
 
 export default function Home() {
   return (
-    <div className={styles.app}>
+    <div className={styles.body}>
+      <Header />
       <Joke />
     </div>
   )

@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import styles from '../styles/Joke.module.css'
+import React, { useState } from 'react';
+import styles from '../styles/App.module.css'
 
 export const Joke = () => {
     let [joke, setJoke] = useState(null)
     let [clicked, setClicked] = useState(false)
-    console.log(joke)
     const options = {
         method: 'GET',
         headers: {
@@ -25,12 +24,12 @@ export const Joke = () => {
     return (
         <div className={styles.container}>
             <div className={styles.textContainer}>
-                <h1 className={styles.text}>{joke?.setup}</h1>
-                {clicked === false ? null : <h2 className={styles.text}>{joke?.punchline}</h2>}
+                <h1 className={styles.jokeText}>{joke?.setup}</h1>
+                {clicked === false ? null : <h2 className={styles.punchlineText}>{joke?.punchline}</h2>}
             </div>
             <div className={styles.buttonContainer}>
-                <button className={styles.button} onClick={() => setClicked(true)}>Punchline</button>
-                <button className={styles.button} onClick={fetchData}>New Joke</button>
+                <button className={styles.button} onClick={() => setClicked(true)}>PUNCHLINE</button>
+                <button className={styles.button} onClick={fetchData}>NEW JOKE</button>
             </div>
         </div>
 
