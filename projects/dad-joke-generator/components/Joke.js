@@ -23,6 +23,9 @@ export const Joke = () => {
 
     return (
         <div className={styles.container}>
+            <div className={styles.header}>
+                <h1>DAD JOKES</h1>
+            </div>
             <div className={styles.textContainer}>
                 <h1 className={styles.jokeText}>{joke?.setup}</h1>
                 {clicked === false ? null : <h2 className={styles.punchlineText}>{joke?.punchline}</h2>}
